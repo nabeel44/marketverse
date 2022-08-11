@@ -14,3 +14,5 @@ const CryptoDetails = () => {
 }
 
 export default CryptoDetails
+
+'blah blah this is for the commit'
