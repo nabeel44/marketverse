@@ -4,15 +4,25 @@ import { useParams } from 'react-router-dom';
 import millify from 'millify';
 import { Col, Row, Typography, Select } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined } from '@ant-design/icons';
-
+import { useGetCryptoDetailsQuery } from '../services/cryptoApi';
+const {Title, Text} = Typography;
+const { option } = Select;
 
 
 const CryptoDetails = () => {
+  console.log('test')
+  const { coinId} = useParams();
+  const [timePeriod, setTimePeriod] = useState('7d')
+  const { data, isFetching} = useGetCryptoDetailsQuery(coinId)
+  console.log('here');
+  console.log('here', data);
+
+
   return (
-    <div>CryptoDetails</div>
+    <div>
+      CryptoDetails
+      </div>
   )
 }
 
 export default CryptoDetails
-
-'blah blah this is for the commit'
