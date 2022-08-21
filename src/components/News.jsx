@@ -10,10 +10,10 @@ const { Text, Title } = Typography;
 const {Option} = Select;
 
 const News = ({ simplified }) => {
-  //const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
-  const count = simplified ? 6 : 12;
-  const { data: cryptoNews } = useGetCryptoNewsQuery({count})
-  if(!cryptoNews?.value) return 'Loading...';
+  var count = simplified ? 6 : 12
+  const {data: cryptoNews, isFetching} = useGetCryptoNewsQuery(count)
+
+  if(!cryptoNews?.value | isFetching) return 'Loading...'
 
   return (
     <Row gutter={[24,24]}>

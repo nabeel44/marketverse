@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+/*
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
@@ -8,16 +9,8 @@ import { useGetCryptoDetailsQuery } from '../services/cryptoApi';
 const {Title, Text} = Typography;
 const { option } = Select;
 
-
+*/
 const CryptoDetails = () => {
-  console.log('test')
-  const { coinId} = useParams();
-  const [timePeriod, setTimePeriod] = useState('7d')
-  const { data, isFetching} = useGetCryptoDetailsQuery(coinId)
-  console.log('here');
-  console.log('here', data);
-
-
   return (
     <div>
       CryptoDetails
