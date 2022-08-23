@@ -6,6 +6,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import {Cryptocurrencies, News} from '../components';
 import { useGetCryptosQuery } from '../services/cryptoApi';
+import Loader from './Loader';
 //"https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
 //coinranking2ecfe7c0b35eac2d3352be8c286bf0441da41cc2bb7dd09d
 //https://api.coingecko.com/api/v3/global
@@ -16,7 +17,7 @@ const Homepage = ({simplified}) => {
   const { data, isFetching} = useGetCryptosQuery(10);
   const globalStats = data?.data?.stats
 
-  if (isFetching) return 'Loading...'
+  if (isFetching) return <Loader />
 
   return (
     <>
@@ -35,9 +36,8 @@ const Homepage = ({simplified}) => {
     <Cryptocurrencies simplified={true}/>
     <div className='home-heading-contianer'>
       <Title level={2} className='home-title'>Latest Crypto News</Title>
-      <Title level={3} className='show-more'><Link to='/news'>Show More</Link></Title>
     </div>
-    <News simplified={true} />
+    <News simplified/>
     </>
   )
 }

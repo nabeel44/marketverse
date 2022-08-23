@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Select, Typography, Row, Col, Avatar, Card} from 'antd';
 import moment from 'moment';
-
+import axios from 'axios';
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
+import Loader from './Loader';
 
 const demoImage = 'http://coinrevolution.com/wp-content/uploads/2020/06/crptonews.jpg';
 
@@ -10,10 +11,14 @@ const { Text, Title } = Typography;
 const {Option} = Select;
 
 const News = ({ simplified }) => {
+
   var count = simplified ? 6 : 12
   const {data: cryptoNews, isFetching} = useGetCryptoNewsQuery(count)
 
-  if(!cryptoNews?.value | isFetching) return 'Loading...'
+  if(!cryptoNews?.value | isFetching) return <Loader/> 
+
+
+
 
   return (
     <Row gutter={[24,24]}>

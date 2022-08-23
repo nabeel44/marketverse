@@ -4,6 +4,7 @@ import {Layout, Typography, Space} from 'antd'
 import './App.css';
 import { useGetCryptoNewsQuery } from './services/cryptoNewsApi';
 import {Navbar, Homepage, Cryptocurrencies, News, CryptoDetails} from './components';
+import coinId from './components/CryptoDetails'
 
 const App = () => {
   return (
@@ -17,7 +18,7 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<Homepage />}/>
                         <Route path='/cryptocurrencies' element={<Cryptocurrencies />}/>
-                        <Route path='/cyrpto/:coinId' element ={<CryptoDetails/>}/>
+                        <Route path='/crypto/:uuid' element ={<CryptoDetails/>}/>
                         <Route path='/news' element={<News/>}/>
                     </Routes>
                 </div>
